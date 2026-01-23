@@ -1,341 +1,284 @@
-/* CSS Custom Properties for theming and consistency */
+/* Playful Calculator Styles */
+
+/* Main Calculator Container */
 .calculator {
-  width: 320px;
+  width: 340px;
   margin: 3rem auto;
-  background: #1e1e1e;
-  border-radius: 12px;
-  padding: 1rem;
+  background: linear-gradient(145deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  border-radius: 28px;
+  padding: 1.5rem;
   color: white;
-}
-
-.display {
-  background: black;
-  padding: 1rem;
-  font-size: 2rem;
-  text-align: right;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-}
-
-.buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-}
-
-button {
-  padding: 1rem;
-  font-size: 1.2rem;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.85;
-}
-
-.equals {
-  background-color: #4caf50;
-  color: white;
-  grid-row: span 2;
-}
-
-.span-two {
-  grid-column: span 2;
-}
-
-.calculator {
-  --color-bg: #1c1c1c;
-  --color-surface: #2d2d2d;
-  --color-surface-hover: #3d3d3d;
-  --color-accent: #ff9f0a;
-  --color-accent-hover: #ffb340;
-  --color-text: #ffffff;
-  --color-text-muted: #a5a5a5;
-  --color-button: #333333;
-  --color-button-hover: #444444;
-  --color-clear: #a5a5a5;
-  --color-clear-hover: #b5b5b5;
-  --color-error: #ff453a;
-
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
-
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.25);
-  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.3);
-
-  --transition-fast: 0.15s ease;
-  --transition-normal: 0.2s ease;
-
-  background: var(--color-bg);
-  border-radius: var(--radius-lg);
-  padding: clamp(20px, 5vw, 32px);
-  box-shadow: var(--shadow-lg);
-  width: min(360px, 90vw);
-  max-width: 100%;
-}
-
-/* Title */
-.calculator-title {
-  color: var(--color-text);
-  font-size: clamp(1.25rem, 4vw, 1.5rem);
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: clamp(16px, 4vw, 24px);
-}
-
-/* Form Groups */
-.input-group,
-.operation-group,
-.result-group {
-  margin-bottom: clamp(16px, 4vw, 20px);
-}
-
-/* Labels - Accessible with proper contrast */
-.input-group label,
-.operation-group label,
-.result-group label {
-  display: block;
-  color: var(--color-text-muted);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-/* Number Inputs */
-.number-input {
-  width: 100%;
-  padding: clamp(12px, 3vw, 16px);
-  font-size: clamp(1rem, 3vw, 1.25rem);
-  font-family: inherit;
-  border: 2px solid transparent;
-  border-radius: var(--radius-md);
-  background: var(--color-surface);
-  color: var(--color-text);
-  outline: none;
-  transition:
-    border-color var(--transition-normal),
-    box-shadow var(--transition-normal),
-    background-color var(--transition-normal);
-}
-
-.number-input:hover {
-  background: var(--color-surface-hover);
-}
-
-.number-input:focus {
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(255, 159, 10, 0.25);
-}
-
-/* Focus-visible for keyboard navigation */
-.number-input:focus-visible {
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(255, 159, 10, 0.4);
-}
-
-.number-input::placeholder {
-  color: #666;
-}
-
-/* Hide number input spinners */
-.number-input::-webkit-outer-spin-button,
-.number-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.number-input[type=number] {
-  -moz-appearance: textfield;
-}
-
-/* Operation Buttons Grid */
-.operation-buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: clamp(8px, 2vw, 12px);
-}
-
-/* Operation Buttons */
-.operation-btn {
-  padding: clamp(12px, 3vw, 16px);
-  font-size: clamp(1.1rem, 3vw, 1.25rem);
-  font-family: inherit;
-  font-weight: 500;
-  border: 2px solid transparent;
-  border-radius: var(--radius-md);
-  background: var(--color-button);
-  color: var(--color-text);
-  cursor: pointer;
-  transition:
-    background-color var(--transition-fast),
-    border-color var(--transition-fast),
-    transform var(--transition-fast),
-    box-shadow var(--transition-fast);
+  box-shadow:
+    0 20px 60px rgba(102, 126, 234, 0.4),
+    0 10px 20px rgba(118, 75, 162, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
   position: relative;
   overflow: hidden;
 }
 
-.operation-btn::before {
+/* Decorative background bubbles */
+.calculator::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity var(--transition-fast);
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
-.operation-btn:hover {
-  background: var(--color-button-hover);
+.calculator::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
-.operation-btn:hover::before {
-  opacity: 1;
-}
-
-/* Active/Selected operation */
-.operation-btn.active {
-  background: var(--color-accent);
-  color: var(--color-text);
-  box-shadow: var(--shadow-sm), 0 0 20px rgba(255, 159, 10, 0.3);
-}
-
-.operation-btn.active:hover {
-  background: var(--color-accent-hover);
-}
-
-/* Button press effect */
-.operation-btn:active {
-  transform: scale(0.95);
-}
-
-/* Keyboard focus styles */
-.operation-btn:focus-visible {
-  outline: none;
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(255, 159, 10, 0.4);
-}
-
-/* Result Display */
-.result-display {
-  background: var(--color-surface);
-  color: var(--color-accent);
-  font-size: clamp(1.75rem, 6vw, 2.5rem);
+/* Display Screen */
+.display {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1.25rem 1.5rem;
+  font-size: 2.5rem;
   font-weight: 600;
-  font-variant-numeric: tabular-nums;
   text-align: right;
-  padding: clamp(16px, 4vw, 20px);
-  border-radius: var(--radius-md);
-  min-height: clamp(60px, 15vw, 80px);
+  border-radius: 16px;
+  margin-bottom: 1.25rem;
+  color: #4a4a6a;
+  box-shadow:
+    inset 0 4px 12px rgba(102, 126, 234, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.1);
+  min-height: 70px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  letter-spacing: -1px;
+  position: relative;
+  z-index: 1;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
-  transition: color var(--transition-normal);
-  border: 2px solid transparent;
 }
 
-/* Error state for result */
-.result-display.error {
-  color: var(--color-error);
+/* Button Grid */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  position: relative;
+  z-index: 1;
 }
 
-/* Clear Button */
-.clear-btn {
-  width: 100%;
-  padding: clamp(14px, 3vw, 18px);
-  font-size: 0.9375rem;
-  font-family: inherit;
+/* Base Button Styles */
+button {
+  padding: 1.1rem;
+  font-size: 1.4rem;
   font-weight: 600;
-  border: 2px solid transparent;
-  border-radius: var(--radius-md);
-  background: var(--color-clear);
-  color: var(--color-bg);
+  border-radius: 14px;
+  border: none;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
   transition:
-    background-color var(--transition-fast),
-    transform var(--transition-fast),
-    box-shadow var(--transition-fast);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-top: 4px;
+    transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.2s ease;
+  font-family: inherit;
+
+  /* Default number button style - warm coral gradient */
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fad0c4 100%);
+  color: #6b4a6b;
+  box-shadow:
+    0 6px 20px rgba(255, 154, 158, 0.4),
+    0 3px 6px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
-.clear-btn:hover {
-  background: var(--color-clear-hover);
-  box-shadow: var(--shadow-sm);
+/* Shimmer effect on buttons */
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s ease;
 }
 
-.clear-btn:active {
-  transform: scale(0.98);
+button:hover::before {
+  left: 100%;
 }
 
-.clear-btn:focus-visible {
-  outline: none;
-  border-color: var(--color-text);
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+/* Button hover state */
+button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow:
+    0 10px 30px rgba(255, 154, 158, 0.5),
+    0 6px 12px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* Button active/pressed state */
+button:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow:
+    0 2px 8px rgba(255, 154, 158, 0.3),
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+/* Operator buttons - Ocean blue gradient */
+button:nth-child(3),
+button:nth-child(4),
+button:nth-child(8),
+button:nth-child(12) {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow:
+    0 6px 20px rgba(102, 126, 234, 0.4),
+    0 3px 6px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+button:nth-child(3):hover,
+button:nth-child(4):hover,
+button:nth-child(8):hover,
+button:nth-child(12):hover {
+  box-shadow:
+    0 10px 30px rgba(102, 126, 234, 0.5),
+    0 6px 12px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* AC button - Sunny yellow gradient */
+.span-two:first-child {
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+  color: #7a5a3a;
+  box-shadow:
+    0 6px 20px rgba(246, 211, 101, 0.4),
+    0 3px 6px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.span-two:first-child:hover {
+  box-shadow:
+    0 10px 30px rgba(246, 211, 101, 0.5),
+    0 6px 12px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* Equals button - Mint green gradient */
+.equals {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  color: white;
+  grid-row: span 2;
+  box-shadow:
+    0 6px 20px rgba(56, 239, 125, 0.4),
+    0 3px 6px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  font-size: 1.8rem;
+}
+
+.equals:hover {
+  box-shadow:
+    0 10px 30px rgba(56, 239, 125, 0.5),
+    0 6px 12px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Span two columns */
+.span-two {
+  grid-column: span 2;
+}
+
+/* Zero button specific style */
+button.span-two:not(:first-child) {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fad0c4 100%);
+  color: #6b4a6b;
+}
+
+/* Decimal button */
+.buttons button:last-child {
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  color: #5a6a7a;
+}
+
+/* Bounce animation for fun feedback */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(56, 239, 125, 0.4); }
+  50% { box-shadow: 0 0 20px 10px rgba(56, 239, 125, 0); }
+}
+
+.equals:focus {
+  animation: pulse 1s ease-in-out infinite;
 }
 
 /* Responsive adjustments */
 @media (max-width: 400px) {
   .calculator {
-    border-radius: var(--radius-md);
+    width: 95%;
+    margin: 1.5rem auto;
+    padding: 1rem;
+    border-radius: 20px;
   }
 
-  .operation-buttons {
-    grid-template-columns: repeat(2, 1fr);
+  .display {
+    font-size: 2rem;
+    padding: 1rem;
+  }
+
+  button {
+    padding: 0.9rem;
+    font-size: 1.2rem;
+    border-radius: 12px;
+  }
+
+  .buttons {
+    gap: 8px;
   }
 }
 
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
-
+  button,
   .calculator,
   .calculator * {
     transition-duration: 0.01ms !important;
+    animation: none !important;
   }
 
-  .operation-btn:active,
-  .clear-btn:active {
-    transform: none;
-  }
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  .calculator {
-    --color-surface: #000000;
-    --color-button: #000000;
-    border: 2px solid var(--color-text);
-  }
-
-  .number-input,
-  .operation-btn,
-  .result-display,
-  .clear-btn {
-    border: 2px solid var(--color-text);
-  }
-
-  .operation-btn.active {
-    border-color: var(--color-accent);
-  }
-}
-
-/* Print styles */
-@media print {
-  .calculator {
-    box-shadow: none;
-    border: 1px solid #ccc;
-  }
-
-  .clear-btn {
+  button::before {
     display: none;
   }
+
+  button:hover {
+    transform: none;
+  }
+
+  button:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Focus visible for accessibility */
+button:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 2px;
 }
